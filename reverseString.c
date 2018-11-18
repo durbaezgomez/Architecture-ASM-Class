@@ -2,7 +2,6 @@
 int main()
 {
     char string[] = "Hello";
-    int y;
     asm volatile(
 
         ".intel_syntax noprefix;"
@@ -37,7 +36,7 @@ int main()
             "jg reverseString;"
 
         ".att_syntax prefix;"
-        : "=r"(y)
+        : "=r"(string)
         : "r"(string)
         : "eax", "ebx", "ecx");
     printf("s = %s\n", string);
